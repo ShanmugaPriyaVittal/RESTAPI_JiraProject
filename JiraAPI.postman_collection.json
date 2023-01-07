@@ -1,0 +1,250 @@
+{
+	"info": {
+		"_postman_id": "0cace49e-b924-4080-ad30-259898742330",
+		"name": "JiraAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25063088"
+	},
+	"item": [
+		{
+			"name": "CreateIssue",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fields\": {\r\n    \"project\":\r\n                {\r\n                    \"key\": \"BUG\"\r\n                },\r\n    \"summary\": \"create issue in RA project\",\r\n    \"description\": \"Creating of an issue using project keys and issue type names using the REST API\",\r\n    \"issuetype\": {\r\n                    \"name\": \"Bug\"\r\n                }\r\n    }\r\n}\r\n"
+				},
+				"url": {
+					"raw": "https://restapi2023.atlassian.net/rest/api/2/issue/",
+					"protocol": "https",
+					"host": [
+						"restapi2023",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SearchIssue",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://restapi2023.atlassian.net/rest/api/2/issue/10007",
+					"protocol": "https",
+					"host": [
+						"restapi2023",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"10007"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EditIssue",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fields\": {\r\n\r\n        \"description\": \"Bug edit Using REST API for testing\"\r\n    }\r\n}\r\n"
+				},
+				"url": {
+					"raw": "https://restapi2023.atlassian.net/rest/api/2/issue/10007",
+					"protocol": "https",
+					"host": [
+						"restapi2023",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"10007"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteIssue",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://restapi2023.atlassian.net/rest/api/2/issue/10007",
+					"protocol": "https",
+					"host": [
+						"restapi2023",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"10007"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SearchIssues",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://restapi2023.atlassian.net/rest/api/2/search?jql=project=\"Demo service project\"",
+					"protocol": "https",
+					"host": [
+						"restapi2023",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"search"
+					],
+					"query": [
+						{
+							"key": "jql",
+							"value": "project=\"Demo service project\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListSpecificIssueType",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://restapi2023.atlassian.net/rest/api/2/issuetype/10004",
+					"protocol": "https",
+					"host": [
+						"restapi2023",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issuetype",
+						"10004"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListAllIssueTypes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"self\": \"https://api-training.atlassian.net/rest/api/2/issuetype/10004\",\r\n        \"id\": \"10004\",\r\n        \"description\": \"A new feature of the product, which has yet to be developed.\",\r\n        \"iconUrl\": \"https://api-training.atlassian.net/secure/viewavatar?size=medium&avatarId=10311&avatarType=issuetype\",\r\n        \"name\": \"New Feature\",\r\n        \"subtask\": false,\r\n        \"avatarId\": 10311\r\n    },\r\n    {\r\n        \"self\": \"https://api-training.atlassian.net/rest/api/2/issuetype/10001\",\r\n        \"id\": \"10001\",\r\n        \"description\": \"An improvement or enhancement to an existing feature or task.\",\r\n        \"iconUrl\": \"https://api-training.atlassian.net/secure/viewavatar?size=medium&avatarId=10310&avatarType=issuetype\",\r\n        \"name\": \"Improvement\",\r\n        \"subtask\": false,\r\n        \"avatarId\": 10310\r\n    }\r\n]\r\n"
+				},
+				"url": {
+					"raw": "https://restapi2023.atlassian.net/rest/api/2/issuetype",
+					"protocol": "https",
+					"host": [
+						"restapi2023",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issuetype"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "shanvit31@gmail.com",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "hCW30zQW3lb92Zo5qUSSD226",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
